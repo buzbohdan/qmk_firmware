@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS, \
   KC_CAPS,  KC_A,   LCTL_T(KC_S), LALT_T(KC_D), LGUI_T(KC_F), KC_G,      KC_H,    LGUI_T(KC_J), LALT_T(KC_K), LCTL_T(KC_L), KC_SCLN, KC_QUOT, \
   XXXXXXX,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_GRV, \
-                   KC_UP, KC_DOWN, RSFT_T(KC_BSPC), LT(_LOWER, KC_DEL),    LT(_RAISE, KC_ENT), RSFT_T(KC_SPC), KC_LEFT, KC_RGHT \
+                   KC_DOWN, KC_UP, RSFT_T(KC_BSPC), LT(_LOWER, KC_DEL),    LT(_RAISE, KC_ENT), RSFT_T(KC_SPC), KC_LEFT, KC_RGHT \
 ),
 /* LOWER `
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                     KC_F7,  KC_UNDS,   KC_F9,  KC_F10,  KC_F11,  KC_PAUS, \
   KC_GRV, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD, \
   _______, _______, _______, _______, KC_LSFT, _______, _______, _______, XXXXXXX, KC__MUTE, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, \
-                             _______, _______, _______, _______, KC__VOLUP,  KC__VOLDOWN, KC_BRMU, KC_BRMD\
+                             _______, _______, _______, _______, KC__VOLDOWN, KC__VOLUP, KC_BRMD, KC_BRMU\
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
