@@ -24,35 +24,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define MY_BSPC LT(_LOWER, KC_BSPC)
 #define MY_SPC LT(_LOWER, KC_SPC)
 
- [_QWERTY] = LAYOUT( \
-  XXXXXXX,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL, \
-  XXXXXXX,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS, \
-  XXXXXXX,  MY_A,   MY_S,    MY_D,    MY_F,    KC_G,                     KC_H,    MY_J,    MY_K,    MY_L,    MY_SCLN, KC_QUOT, \
-  XXXXXXX,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX, XXXXXXX,   KC_N,    KC_M, KC_COMM, KC_DOT,  KC_SLSH,  KC_GRV, \
-                 XXXXXXX,  KC_ESC, MY_BSPC,  KC_TAB,                   KC_ENT,  MY_SPC,  KC_DEL, XXXXXXX \
+#define VOL_UP KC__VOLUP
+#define VOL_DWN KC__VOLDOWN
+
+[_QWERTY] = LAYOUT( \
+  XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL, \
+  XXXXXXX,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS, \
+  XXXXXXX,    MY_A,    MY_S,    MY_D,    MY_F,    KC_G,                       KC_H,    MY_J,    MY_K,    MY_L,    MY_SCLN, KC_QUOT, \
+  XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX,  XXXXXXX,    KC_N,    KC_M, KC_COMM, KC_DOT,  KC_SLSH,  KC_GRV, \
+                             XXXXXXX,  KC_ESC, MY_BSPC,  KC_TAB,   KC_ENT,  MY_SPC,  KC_DEL, XXXXXXX \
 ),
 
 [_LOWER] = LAYOUT( \
-  _______, _______, _______,  KC_F3,   KC_F4,   KC_F5,                     KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  TG(_RAISE),\
-  _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_F6,                     _______, KC_UNDS, KC_LBRC, KC_RBRC, _______, _______, \
-  _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                   KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
-  _______, _______, _______, _______, KC_LSFT, _______, _______,  _______, _______, _______, KC_LCBR, KC_RCBR, _______, KC_PIPE, \
-                             _______, _______, _______, _______,  KC__VOLDOWN, KC__VOLUP, KC_BRMD, KC_BRMU\
+  _______, _______, _______, _______, _______, _______,                    _______, _______, _______, _______, _______, TG(_RAISE),\
+  _______, _______, _______, _______, _______, _______,                    _______, KC_UNDS, KC_LBRC, KC_RBRC,   KC_F8, _______, \
+  _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,                    KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, \
+  _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, KC_LCBR, KC_RCBR,  KC_F10, KC_PIPE, \
+                             _______, _______, _______, _______,  VOL_DWN,  VOL_UP, KC_BRMD, KC_BRMU \
 ),
-/* RAISE
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |-------.    ,-------|      | Left | Down |  Up  |Right |      |
- * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |  F7  |  F8  |  F9  | F10  | F11  | F12  |-------|    |-------|   +  |   -  |   =  |   [  |   ]  |   \  |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP| RGUI |
- *                   |      |      |      |/       /         \      \ |      |      |      |
- *                   `----------------------------'           '------''--------------------'
- */
 
 [_RAISE] = LAYOUT( \
   _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, TG(_RAISE), \
