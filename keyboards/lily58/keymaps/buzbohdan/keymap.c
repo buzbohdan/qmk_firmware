@@ -5,6 +5,7 @@ enum layer_number {
   _LOWER,
   _RAISE,
   _ADJUST,
+  _GAME,
 };
 
 #define MY_D LCTL_T(KC_D)
@@ -26,10 +27,12 @@ enum layer_number {
 #define VOL_UP KC__VOLUP
 #define VOL_DWN KC__VOLDOWN
 
+#define GAME TO(_GAME)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT( \
-  XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,   KC_EQL, \
+  XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  _______, \
   XXXXXXX,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_MINS, \
   XXXXXXX,    MY_A,    MY_S,    MY_D,    MY_F,    KC_G,                       KC_H,    MY_J,    MY_K,    MY_L,  MY_SCLN, KC_QUOT, \
   XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX,  XXXXXXX,    KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH,  KC_GRV, \
@@ -41,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______,                    _______, KC_UNDS, KC_LBRC, KC_RBRC,   KC_F8, _______, \
   _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,                    KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, \
   _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______,  KC_F10, _______, \
-                             _______, _______, _______, _______,  VOL_DWN,  VOL_UP, KC_BRMD, KC_BRMU \
+                             _______,    GAME, _______, _______,  VOL_DWN,  VOL_UP, KC_BRMD, KC_BRMU \
 ),
 
 [_RAISE] = LAYOUT( \
@@ -49,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_LBRC,    KC_7,    KC_8,    KC_9, KC_RBRC,                   _______, _______, _______, _______, _______, _______, \
   _______, MY_SCLN,    KC_4,    KC_5,    KC_6,  KC_EQL,                   _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______, \
   _______,  KC_GRV,    KC_1,    KC_2,    KC_3, KC_BSLS, _______, _______, _______, _______, _______, _______, _______, _______, \
-                             _______, _______,    KC_0, KC_MINS, _______, _______, _______, _______ \
+                             _______, KC_QUOT,    KC_0, KC_MINS, _______, _______, _______, _______ \
 ),
 
 [_ADJUST] = LAYOUT( \
@@ -58,7 +61,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, KC_COLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS,                   XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX, \
   XXXXXXX, KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
                              _______, KC_LPRN, KC_RPRN, KC_UNDS, _______,  _______, _______, _______ \
-  )
+),
+
+[_GAME] = LAYOUT( \
+   KC_ESC, _______, _______, _______, _______, _______,                    _______, _______, _______, _______, _______, _______,\
+   KC_TAB, _______, _______, _______, _______, _______,                    _______, _______, _______, _______, _______, _______, \
+  KC_LSFT,    KC_A,    KC_S,    KC_D, _______, _______,                    _______, _______, _______, _______, _______, _______, \
+  KC_LCTL, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, \
+                             _______,  KC_SPC, _______, _______,  _______, _______, _______, TO(_QWERTY) \
+)
 };
 
 //SSD1306 OLED update loop, make sure to enable OLED_DRIVER_ENABLE=yes in rules.mk
