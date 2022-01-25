@@ -6,6 +6,7 @@ enum layer_number {
   _RAISE,
   _ADJUST,
   _GAME,
+  _MODS,
 };
 
 #define MY_D LCTL_T(KC_D)
@@ -23,6 +24,7 @@ enum layer_number {
 #define MY_BSPC LT(_LOWER, KC_BSPC)
 #define MY_SPC LT(_RAISE, KC_SPC)
 #define MY_ENT LT(_ADJUST, KC_ENT)
+#define MY_QUOT LT(_MODS, KC_QUOT)
 
 #define VOL_UP KC__VOLUP
 #define VOL_DWN KC__VOLDOWN
@@ -32,11 +34,11 @@ enum layer_number {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT( \
-  XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  _______, \
-  XXXXXXX,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_MINS, \
-  XXXXXXX,    MY_A,    MY_S,    MY_D,    MY_F,    KC_G,                       KC_H,    MY_J,    MY_K,    MY_L,  MY_SCLN, KC_QUOT, \
-  XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX,  XXXXXXX,    KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH,  KC_GRV, \
-                             XXXXXXX,  KC_ESC, MY_BSPC,  KC_TAB,   MY_ENT,  MY_SPC,  KC_DEL, XXXXXXX \
+  _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,     KC_0, _______, \
+  _______,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,     KC_P, _______, \
+  _______,    MY_A,    MY_S,    MY_D,    MY_F,    KC_G,                       KC_H,    MY_J,    MY_K,    MY_L,  MY_SCLN, _______, \
+  _______,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, _______,  _______,    KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH, _______, \
+                             XXXXXXX,  KC_ESC, MY_BSPC,  KC_TAB,   MY_ENT,  MY_SPC, MY_QUOT, XXXXXXX \
 ),
 
 [_LOWER] = LAYOUT( \
@@ -69,7 +71,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LSFT,    KC_A,    KC_S,    KC_D, _______, _______,                    _______, _______, _______, _______, _______, _______, \
   KC_LCTL, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, \
                              _______,  KC_SPC, _______, _______,  _______, _______, _______, TO(_QWERTY) \
-)
+),
+
+[_MODS] = LAYOUT( \
+  _______, _______, _______, _______, _______, _______,                    _______, _______, _______, _______, _______, _______,\
+  _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), G(KC_5),                    _______, _______, _______, _______, _______, _______, \
+  _______, A(KC_1), A(KC_2), A(KC_3), A(KC_4), A(KC_5),                    _______, _______, _______, _______, _______, _______, \
+  _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, \
+                             _______, _______, _______, _______,  _______, _______, _______, _______ \
+),
 };
 
 //SSD1306 OLED update loop, make sure to enable OLED_DRIVER_ENABLE=yes in rules.mk
