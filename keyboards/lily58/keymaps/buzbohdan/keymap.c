@@ -7,6 +7,7 @@ enum layer_number {
   _ADJUST,
   _GAME,
   _MODS,
+  _MOUSE,
 };
 
 #define MY_D LCTL_T(KC_D)
@@ -25,6 +26,7 @@ enum layer_number {
 #define MY_SPC LT(_RAISE, KC_SPC)
 #define MY_ENT LT(_ADJUST, KC_ENT)
 #define MY_QUOT LT(_MODS, KC_QUOT)
+#define MY_ESC LT(_MOUSE, KC_ESC)
 
 #define VOL_UP KC__VOLUP
 #define VOL_DWN KC__VOLDOWN
@@ -38,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,     KC_P, _______, \
   _______,    MY_A,    MY_S,    MY_D,    MY_F,    KC_G,                       KC_H,    MY_J,    MY_K,    MY_L,  MY_SCLN, _______, \
   _______,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, _______,  _______,    KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH, _______, \
-                             XXXXXXX,  KC_ESC, MY_BSPC,  KC_TAB,   MY_ENT,  MY_SPC, MY_QUOT, XXXXXXX \
+                             XXXXXXX,  MY_ESC, MY_BSPC,  KC_TAB,   MY_ENT,  MY_SPC, MY_QUOT, XXXXXXX \
 ),
 
 [_LOWER] = LAYOUT( \
@@ -54,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_LBRC,    KC_7,    KC_8,    KC_9, KC_RBRC,                   _______, _______, _______, _______, _______, _______, \
   _______, MY_SCLN,    KC_4,    KC_5,    KC_6,  KC_EQL,                   _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______, \
   _______,  KC_GRV,    KC_1,    KC_2,    KC_3, KC_BSLS, _______, _______, _______, _______, _______, _______, _______, _______, \
-                             _______, KC_QUOT,    KC_0, KC_MINS, _______, _______, _______, _______ \
+                             _______,  KC_GRV,    KC_0, KC_MINS, _______, _______, _______, _______ \
 ),
 
 [_ADJUST] = LAYOUT( \
@@ -79,6 +81,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, A(KC_1), A(KC_2), A(KC_3), A(KC_4), A(KC_5),                    _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, \
                              _______, _______, _______, _______,  _______, _______, _______, _______ \
+),
+
+[_MOUSE] = LAYOUT( \
+  _______, _______, _______, _______, _______, _______,                    _______, _______, _______, _______, _______, _______,\
+  _______, _______, _______, _______, _______, _______,                    _______, _______, _______, _______, _______, _______, \
+  _______, _______, _______, _______, _______, _______,                    _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, \
+  _______, _______, _______, _______, _______, _______, _______,  _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, \
+                             _______, _______, _______, _______,  KC_BTN2, KC_BTN1, _______, _______ \
 ),
 };
 
